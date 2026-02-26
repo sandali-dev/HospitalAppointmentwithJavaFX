@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="680" prefWidth="980"
+            style="-fx-background-color: #e0f7fa;"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gui.PatientController">
+
+    <!-- TOP BAR -->
+    <HBox alignment="CENTER_LEFT" layoutX="0" layoutY="0" prefWidth="980" spacing="16"
+          style="-fx-background-color: white; -fx-padding: 14 28 14 28;
+                 -fx-border-color: #b2ebf2; -fx-border-width: 0 0 1.5 0;">
+        <Label text="EliteCare Clinic"
+               style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #01579b;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="welcomeLabel" text="Welcome"
+               style="-fx-font-size: 13px; -fx-text-fill: #546e7a;"/>
+        <Button fx:id="logoutBtn" text="Logout"
+                style="-fx-background-color: #00bcd4; -fx-text-fill: white;
+                       -fx-font-weight: bold; -fx-background-radius: 12;
+                       -fx-padding: 7 18; -fx-cursor: hand;"/>
+    </HBox>
+
+    <!-- SIDEBAR — all buttons same style, hover handled in controller -->
+    <VBox layoutX="0" layoutY="57" prefHeight="623" prefWidth="190" spacing="10"
+          style="-fx-background-color: rgba(255,255,255,0.6); -fx-padding: 24 12;
+                 -fx-border-color: #b2ebf2; -fx-border-width: 0 1.5 0 0;">
+        <Label text="MENU"
+               style="-fx-font-size: 10px; -fx-font-weight: bold;
+                      -fx-text-fill: #90a4ae; -fx-padding: 0 0 6 6;"/>
+        <Button fx:id="btnDoctors" text="👨‍⚕️  View Doctors" maxWidth="Infinity"
+                style="-fx-background-color: transparent; -fx-text-fill: #0288d1;
+                       -fx-font-size: 12px; -fx-alignment: CENTER_LEFT;
+                       -fx-background-radius: 10; -fx-padding: 11 14; -fx-cursor: hand;"/>
+        <Button fx:id="btnBook" text="📅  Book Appointment" maxWidth="Infinity"
+                style="-fx-background-color: transparent; -fx-text-fill: #0288d1;
+                       -fx-font-size: 12px; -fx-alignment: CENTER_LEFT;
+                       -fx-background-radius: 10; -fx-padding: 11 14; -fx-cursor: hand;"/>
+        <Button fx:id="btnView" text="📁  My Appointments" maxWidth="Infinity"
+                style="-fx-background-color: transparent; -fx-text-fill: #0288d1;
+                       -fx-font-size: 12px; -fx-alignment: CENTER_LEFT;
+                       -fx-background-radius: 10; -fx-padding: 11 14; -fx-cursor: hand;"/>
+    </VBox>
+
+    <!-- PANEL 1 — VIEW DOCTORS -->
+    <VBox fx:id="panelDoctors" layoutX="210" layoutY="80" prefHeight="560" prefWidth="740"
+          spacing="16" visible="true">
+        <Label text="Our Doctors"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #01579b;"/>
+        <TableView fx:id="doctorsTable" prefHeight="460"
+                   style="-fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 16;">
+            <!-- CONSTRAINED_RESIZE_POLICY removes the empty extra column -->
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="colDocName"      text="Doctor Name" prefWidth="370"/>
+                <TableColumn fx:id="colDocSpecialty" text="Specialty"   prefWidth="370"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <!-- PANEL 2 — BOOK APPOINTMENT -->
+    <VBox fx:id="panelBook" layoutX="210" layoutY="80" prefWidth="460" spacing="16" visible="false">
+        <Label text="Book an Appointment"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #01579b;"/>
+        <VBox spacing="16"
+              style="-fx-background-color: rgba(255,255,255,0.38); -fx-background-radius: 20;
+                     -fx-padding: 30 35; -fx-border-color: rgba(0,188,212,0.4);
+                     -fx-border-radius: 20; -fx-border-width: 1.5;">
+            <Label text="Select Doctor"
+                   style="-fx-font-weight: bold; -fx-text-fill: #01579b;"/>
+            <ComboBox fx:id="doctorCombo" prefWidth="380" promptText="Choose a doctor"
+                      style="-fx-background-radius: 16; -fx-border-radius: 16;
+                             -fx-background-color: rgba(255,255,255,0.85);
+                             -fx-border-color: #00bcd4; -fx-border-width: 1.5; -fx-padding: 6;"/>
+            <Label text="Select Date"
+                   style="-fx-font-weight: bold; -fx-text-fill: #01579b;"/>
+            <DatePicker fx:id="datePicker" prefWidth="380"
+                        style="-fx-background-radius: 16; -fx-border-radius: 16;
+                               -fx-background-color: rgba(255,255,255,0.85);
+                               -fx-border-color: #00bcd4; -fx-border-width: 1.5;"/>
+            <Label text="💡 A queue token will be auto-generated after booking."
+                   style="-fx-font-size: 11px; -fx-text-fill: #78909c;"/>
+            <Button text="✅  Confirm &amp; Get Token" prefWidth="380"
+                    onAction="#handleBooking"
+                    style="-fx-background-color: #00bcd4; -fx-text-fill: white;
+                           -fx-font-size: 14px; -fx-font-weight: bold;
+                           -fx-background-radius: 16; -fx-padding: 13 0; -fx-cursor: hand;"/>
+        </VBox>
+    </VBox>
+
+    <!-- PANEL 3 — MY APPOINTMENTS -->
+    <VBox fx:id="panelView" layoutX="210" layoutY="80" prefHeight="560" prefWidth="740"
+          spacing="16" visible="false">
+        <Label text="My Appointments"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #01579b;"/>
+        <TableView fx:id="appointmentsTable" prefHeight="460"
+                   style="-fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 16;">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="colDoctor"    text="Doctor"    prefWidth="200"/>
+                <TableColumn fx:id="colSpecialty" text="Specialty" prefWidth="160"/>
+                <TableColumn fx:id="colDate"      text="Date"      prefWidth="140"/>
+                <TableColumn fx:id="colToken"     text="🎫 Token"  prefWidth="100"/>
+                <TableColumn fx:id="colStatus"    text="Status"    prefWidth="140"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+</AnchorPane>
