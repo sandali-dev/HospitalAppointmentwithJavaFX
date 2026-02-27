@@ -9,58 +9,36 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="680" prefWidth="980"
-            style="-fx-background-color: #e0f7fa;"
-            xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="gui.DoctorController">
+<AnchorPane prefHeight="680" prefWidth="980" style="-fx-background-color: #e0f7fa;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DoctorController">
 
     <!-- TOP BAR -->
-    <HBox alignment="CENTER_LEFT" layoutX="0" layoutY="0" prefWidth="980" spacing="16"
-          style="-fx-background-color: white; -fx-padding: 14 28 14 28;
-                 -fx-border-color: #b2ebf2; -fx-border-width: 0 0 1.5 0;">
-        <Label text="EliteCare Clinic"
-               style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #01579b;"/>
-        <Region HBox.hgrow="ALWAYS"/>
-        <Label fx:id="welcomeLabel" text="Welcome, Doctor"
-               style="-fx-font-size: 13px; -fx-text-fill: #546e7a;"/>
-        <Button fx:id="logoutBtn" text="Logout"
-                style="-fx-background-color: #00bcd4; -fx-text-fill: white;
-                       -fx-font-weight: bold; -fx-background-radius: 12;
-                       -fx-padding: 7 18; -fx-cursor: hand;"/>
+    <HBox alignment="CENTER_LEFT" layoutX="0" layoutY="0" prefWidth="980" spacing="16" style="-fx-background-color: white; -fx-padding: 14 28 14 28;                  -fx-border-color: #b2ebf2; -fx-border-width: 0 0 1.5 0;">
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #01579b;" text="Hospital Appointment Management System" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Label fx:id="welcomeLabel" style="-fx-font-size: 13px; -fx-text-fill: #546e7a;" text="Welcome, Doctor" />
+        <Button fx:id="logoutBtn" style="-fx-background-color: #00bcd4; -fx-text-fill: white;                        -fx-font-weight: bold; -fx-background-radius: 12;                        -fx-padding: 7 18; -fx-cursor: hand;" text="Logout" />
     </HBox>
 
     <!-- MAIN CARD -->
-    <VBox layoutX="40" layoutY="90" prefHeight="540" prefWidth="900" spacing="16"
-          style="-fx-background-color: rgba(255,255,255,0.38); -fx-background-radius: 20;
-                 -fx-padding: 30 35; -fx-border-color: rgba(0,188,212,0.4);
-                 -fx-border-radius: 20; -fx-border-width: 1.5;">
+    <VBox layoutX="40" layoutY="90" prefHeight="540" prefWidth="900" spacing="16" style="-fx-background-color: rgba(255,255,255,0.38); -fx-background-radius: 20;                  -fx-padding: 30 35; -fx-border-color: rgba(0,188,212,0.4);                  -fx-border-radius: 20; -fx-border-width: 1.5;">
 
-        <Label text="My Patient Queue"
-               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #01579b;"/>
+        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #01579b;" text="My Patient Queue" />
 
-        <TableView fx:id="queueTable" prefHeight="400"
-                   style="-fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 12;">
+        <TableView fx:id="queueTable" prefHeight="400" style="-fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 12;">
             <columnResizePolicy>
-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
             <columns>
-                <TableColumn fx:id="colQueue"   text="Queue No."    prefWidth="150"/>
-                <TableColumn fx:id="colPatient" text="Patient Name" prefWidth="280"/>
-                <TableColumn fx:id="colDate"    text="Date"         prefWidth="220"/>
-                <TableColumn fx:id="colStatus"  text="Status"       prefWidth="220"/>
+                <TableColumn fx:id="colQueue" prefWidth="150" text="Queue No." />
+                <TableColumn fx:id="colPatient" prefWidth="280" text="Patient Name" />
+                <TableColumn fx:id="colDate" prefWidth="220" text="Date" />
+                <TableColumn fx:id="colStatus" prefWidth="220" text="Status" />
             </columns>
         </TableView>
 
         <HBox spacing="16">
-            <Button text="▶  Call Next Patient" onAction="#handleCallNext"
-                    style="-fx-background-color: #00bcd4; -fx-text-fill: white;
-                           -fx-font-size: 13px; -fx-font-weight: bold;
-                           -fx-background-radius: 14; -fx-padding: 12 24; -fx-cursor: hand;"/>
-            <Button text="✅  Mark as Completed" onAction="#handleComplete"
-                    style="-fx-background-color: #2e7d32; -fx-text-fill: white;
-                           -fx-font-size: 13px; -fx-font-weight: bold;
-                           -fx-background-radius: 14; -fx-padding: 12 24; -fx-cursor: hand;"/>
+            <Button onAction="#handleCallNext" style="-fx-background-color: #00bcd4; -fx-text-fill: white;                            -fx-font-size: 13px; -fx-font-weight: bold;                            -fx-background-radius: 14; -fx-padding: 12 24; -fx-cursor: hand;" text="▶  Call Next Patient" />
+            <Button onAction="#handleComplete" style="-fx-background-color: #2e7d32; -fx-text-fill: white;                            -fx-font-size: 13px; -fx-font-weight: bold;                            -fx-background-radius: 14; -fx-padding: 12 24; -fx-cursor: hand;" text="✅  Mark as Completed" />
         </HBox>
     </VBox>
 

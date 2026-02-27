@@ -19,7 +19,7 @@
 
             <children>
                 <!-- name -->
-                <Label style="-fx-font-size: 26px;                       -fx-font-weight: bold;                       -fx-text-fill:#01579b;" text="EliteCare Clinic" />
+                <Label style="-fx-font-size: 26px;                       -fx-font-weight: bold;                       -fx-text-fill:#01579b;" text="Login Form" />
 
                 <ComboBox fx:id="roleCombo" prefWidth="300" promptText="Select Role" style="-fx-background-radius: 16; -fx-border-radius: 16;                              -fx-background-color: rgba(255,255,255,0.7);                              -fx-border-color: #00bcd4; -fx-border-width: 1.2;                              -fx-prompt-text-fill: #78909c;" />
 
@@ -29,7 +29,7 @@
 
 
                 <!--login button -->
-                <Button fx:id="loginBtn" prefWidth="300" style="-fx-background-color: #00bcd4;                            -fx-text-fill: white;                            -fx-font-size: 15px;                            -fx-font-weight: bold;                            -fx-background-radius: 16;                            -fx-padding: 14 0 14 0;                            -fx-cursor: hand;" text="LOGIN" />
+                <Button fx:id="loginBtn" prefHeight="30.0" prefWidth="289.0" style="-fx-background-color: #00bcd4;                            -fx-text-fill: white;                            -fx-font-size: 15px;                            -fx-font-weight: bold;                            -fx-background-radius: 16;                            -fx-padding: 14 0 14 0;                            -fx-cursor: hand;" text="LOGIN" />
 
                 <Button fx:id="registerBtn" prefWidth="300" style="-fx-background-color: transparent;                        -fx-text-fill: #0288d1;                        -fx-font-size: 14px;                        -fx-underline: true;                        -fx-cursor: hand;" text="New Patient? Register Here" />
 
