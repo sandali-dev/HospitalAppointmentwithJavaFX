@@ -1,7 +1,6 @@
 package model;
 
-// Parent class for Admin, Doctor and Patient
-// abstract = cannot create a User directly
+
 public abstract class User {
 
     private String username;
@@ -19,12 +18,33 @@ public abstract class User {
     }
 
     // Getters
-    public String getUsername() { return username; }
-    public String getPassword() { return password; }
-    public String getName()     { return name; }
-    public String getContact()  { return contact; }
-    public String getRole()     { return role; }
+
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRole() {
+        return role;
+    }
 
     // Every child class must write their own version of this
     public abstract void displayDashboard();
+
+    @Override
+    public String toString() {
+        return "User[name=" + name + ", role=" + role + "]";
+    }
 }

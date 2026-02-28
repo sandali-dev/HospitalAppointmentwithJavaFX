@@ -50,7 +50,9 @@ public class PatientController {
         welcomeLabel.setText("Welcome, " + p.getName());
     }
 
-    public void setMainApp(HospitalMain app) { mainApp = app; }
+    public void setMainApp(HospitalMain app) {
+        mainApp = app;
+    }
 
     @FXML
     private void initialize() {

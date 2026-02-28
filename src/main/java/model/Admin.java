@@ -1,6 +1,5 @@
 package model;
 
-// Admin is a User — one fixed account, created by the system
 public class Admin extends User {
 
     public Admin() {
@@ -10,5 +9,11 @@ public class Admin extends User {
     @Override
     public void displayDashboard() {
         System.out.println("Admin Dashboard");
+    }
+
+    // ---- toString ----
+    @Override
+    public String toString() {
+        return "Admin[name=" + getName() + "]";
     }
 }

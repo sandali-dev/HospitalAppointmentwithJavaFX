@@ -2,17 +2,17 @@ package model;
 
 import java.util.ArrayList;
 
-// Patient is a User — can register themselves
+
 public class Patient extends User {
 
-    // Each patient keeps a list of their own appointments
-    private ArrayList<Appointment> appointments = new ArrayList<>();
+    private ArrayList<Appointment> appointments;
 
     public Patient(String username, String password, String name, String contact) {
         super(username, password, name, contact, "Patient");
+        this.appointments = new ArrayList<>();
     }
 
-    // Add a new appointment to this patient's list
+
     public void addAppointment(Appointment a) {
         appointments.add(a);
     }
@@ -25,5 +25,10 @@ public class Patient extends User {
     @Override
     public void displayDashboard() {
         System.out.println("Patient Dashboard - " + getName());
+    }
+
+    @Override
+    public String toString() {
+        return "Patient[name=" + getName() + ", appointments=" + appointments.size() + "]";
     }
 }

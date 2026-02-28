@@ -2,8 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-// DataStore = the memory of the whole system
-// Stores all users and appointments in simple ArrayLists
+
 public class DataStore {
 
     // All users in the system (Admin + Doctors + Patients)
